@@ -95,9 +95,7 @@ colcon build --symlink-install --packages-up-to rl_controller hardware_bridge
 - 启动控制器（硬件环境）：
 在启动有硬件环境的机器上，需要手动关闭已经启动的运控服务：
 ```bash
-sudo systemctl stop joy_controller.service
-sudo systemctl stop rl8_controller.service
-sudo systemctl stop rl16_controller.service
+sudo systemctl stop d1_bringup.service
 ```
 
 **如果运行在TITA上，需要注意：**
