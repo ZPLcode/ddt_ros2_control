@@ -16,7 +16,19 @@
 - `simulation`：`Mujoco`、`Gazebo`、`Webots` 仿真桥接
 - `ros_utils`: 主要为`ros`话题名称相关
 - `urdfs`：机器人模型描述文件（`URDF`/`XACRO`/`Mujoco`等）
-
+  
+## 注意事项
+在使用hardware之前，请检查当前d1-ros2 软件版本,使用`dpkg -l d1-ros2`指令检查，如果当前软件版本为4月01号的，则使用`compress_v1`分支代码，切记勿使用`main`分支，否则失控，同时使用前注意安全。以下`compress_v1`分支使用方法：
+```bash
+git clone https://github.com/DDTRobot/ddt_ros2_control/tree/compress_v1
+cd ddt_ros2_control
+#在编译hardware_bridge前，source /opt/d1-ros2/setup.bash
+source /opt/d1_ros2/setup.bash 
+#确保前后机无其他ros2节点在运行，然后启动硬件运控服务
+colcon build --symlink-install --packages-up-to rl_controller hardware_bridge
+sudo systemctl stop d1_bringup.service
+ros2 launch rl_controller hw.launch.py robot:=d1
+```
 ## 环境与依赖
 - 安装onnx推理引擎
 ``` bash 
