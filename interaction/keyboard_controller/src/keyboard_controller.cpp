@@ -31,7 +31,7 @@ KeyboardControllerNode::KeyboardControllerNode(const rclcpp::NodeOptions & optio
   std::shared_ptr<std::thread> read_key_thread =
     std::make_shared<std::thread>(&KeyboardControllerNode::ReadKeyThread, this);
   (*read_key_thread).detach();
-  pose_.pose.position.z = MIN_HEIGHT;
+  pose_.pose.position.z = DEFAULT_HEIGHT;
   for (size_t i = 0; i < 3; i++) {
     rpy_[i] = 0.0;
   }
@@ -152,6 +152,12 @@ void KeyboardControllerNode::ReadKeyThread()
         twist_.angular.x = 0.0;
         twist_.angular.y = 0.0;
         twist_.angular.z = 0.0;
+        break;
+      case 'q':
+        pose_.pose.position.z += STEP_HEIGHT;
+        break;
+      case 'e':
+        pose_.pose.position.z -= STEP_HEIGHT;
         break;
       // case '+':
       //   speed_scale_ += 0.1;

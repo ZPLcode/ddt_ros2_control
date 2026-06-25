@@ -418,6 +418,10 @@ void RlController::update_control_parameters()
       policy_name + ".min_commands", rl_params.min_commands);
     get_node()->get_parameter<std::vector<scalar_t>>(
       policy_name + ".commands_comp", rl_params.commands_comp);
+    get_node()->get_parameter<std::vector<scalar_t>>(
+      policy_name + ".commands_scale", rl_params.commands_scale);
+    get_node()->get_parameter<std::vector<scalar_t>>(
+      policy_name + ".commands_gain", rl_params.commands_gain);
     get_node()->get_parameter<scalar_t>(policy_name + ".episode_length", rl_params.episode_length);
     // control
     get_node()->get_parameter<scalar_t>(policy_name + ".time_interval", rl_params.time_interval);

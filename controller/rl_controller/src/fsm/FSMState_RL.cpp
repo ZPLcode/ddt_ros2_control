@@ -54,6 +54,14 @@ FSMState_RL::FSMState_RL(
   obs_.dof_pos.setZero(rl_params_->num_actions);
   obs_.dof_vel.setZero(rl_params_->num_actions);
   obs_.last_actions.setZero(rl_params_->num_actions);
+  // pad command vectors to commands_name length (yaml may omit them; extra
+  // commands like base_height need a valid scale/gain/comp at their index)
+  while (rl_params_->commands_scale.size() < rl_params_->commands_name.size())
+    rl_params_->commands_scale.push_back(1.0);
+  while (rl_params_->commands_gain.size() < rl_params_->commands_name.size())
+    rl_params_->commands_gain.push_back(1.0);
+  while (rl_params_->commands_comp.size() < rl_params_->commands_name.size())
+    rl_params_->commands_comp.push_back(0.0);
   if (rl_params_->action_scales.size() == 1) {
     scalar_t base_scale = rl_params_->action_scales[0];
     rl_params_->action_scales.resize(rl_params_->num_actions, base_scale);

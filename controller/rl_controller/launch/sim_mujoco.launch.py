@@ -42,7 +42,7 @@ def launch_setup(context, *args, **kwargs):
         executable='mujoco_sim',
         parameters=[
             {"model_package": robot_name + "_description"},
-            {"model_file": "mujoco/scene.xml"},
+            {"model_file": "mujoco/scene_cargo.xml"},
             {"physics_plugins": ["mujoco_ros2_control::MujocoRos2ControlPlugin"]},
             robot_controllers
         ],

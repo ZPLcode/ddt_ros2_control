@@ -30,14 +30,15 @@
 #define STEP_ACCL_W 0.2
 #define STEP_ORIENTATION 0.01
 #define STEP_POSITION 0.01
-#define STEP_HEIGHT 0.1
+#define STEP_HEIGHT 0.03
 
 #define MAX_VEL_X 3.0
 #define MAX_VEL_W 10.0
 #define MAX_ORIENTATION 0.6
 #define MAX_POSITION 0.1
-#define MIN_HEIGHT 0.1
+#define MIN_HEIGHT 0.20
 #define MAX_HEIGHT 0.5
+#define DEFAULT_HEIGHT 0.4
 
 using namespace std::chrono_literals;
 
