@@ -425,7 +425,7 @@
     </collision>
   </link>
   <joint name="R_base_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.36 0 0"/>
+    <origin rpy="0 0 3.14159" xyz="-0.36 0 0"/>
     <parent link="base_link"/>
     <child link="R_base_link"/>
   </joint>
@@ -453,7 +453,7 @@
     </collision>
   </link>
   <joint name="R_funtion_joint" type="fixed">
-    <origin rpy="0 0 3.14159" xyz="-0.1545 0 0"/>
+    <origin rpy="0 0 0" xyz="0.1545 0 0"/>
     <parent link="R_base_link"/>
     <child link="R_funtion_link"/>
     <axis xyz="0 0 0"/>
@@ -482,7 +482,7 @@
     </collision>
   </link>
   <joint name="R_docking_joint" type="fixed">
-    <origin rpy="0 0 3.14159" xyz="0.187 0 0"/>
+    <origin rpy="0 0 0" xyz="-0.187 0 0"/>
     <parent link="R_base_link"/>
     <child link="R_docking_link"/>
     <axis xyz="0 0 0"/>
