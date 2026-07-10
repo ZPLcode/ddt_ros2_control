@@ -1,3 +1,0 @@
-Tue Jul  7 23:29:31 2026
-WARNING: Nan, Inf or huge value in QPOS at DOF 917500. The simulation is unstable. Time = 76.3140.
-
