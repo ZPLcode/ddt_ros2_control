@@ -22,14 +22,14 @@
     <light pos="0 0 1.5" dir="0 0 -1" directional="true"/>
     <geom name="floor" size="0 0 0.05" type="plane" material="groundplane"/>
 
-    <!-- symmetric up-and-over staircase: 8/10/12/14 cm rises, 0.40 m tread -->
-    <geom pos="1.7 0 0.04" type="box" size="0.2 2 0.04"/>
-    <geom pos="2.1 0 0.09" type="box" size="0.2 2 0.09"/>
-    <geom pos="2.5 0 0.15" type="box" size="0.2 2 0.15"/>
-    <geom pos="3.2 0 0.22" type="box" size="0.5 2 0.22"/>
-    <geom pos="3.9 0 0.15" type="box" size="0.2 2 0.15"/>
-    <geom pos="4.3 0 0.09" type="box" size="0.2 2 0.09"/>
-    <geom pos="4.7 0 0.04" type="box" size="0.2 2 0.04"/>
+    <!-- symmetric up-and-over staircase: 8/10/12/14 cm rises, 0.30 m tread -->
+    <geom pos="1.65 0 0.04" type="box" size="0.15 2 0.04"/>
+    <geom pos="1.95 0 0.09" type="box" size="0.15 2 0.09"/>
+    <geom pos="2.25 0 0.15" type="box" size="0.15 2 0.15"/>
+    <geom pos="2.9 0 0.22" type="box" size="0.5 2 0.22"/>
+    <geom pos="3.55 0 0.15" type="box" size="0.15 2 0.15"/>
+    <geom pos="3.85 0 0.09" type="box" size="0.15 2 0.09"/>
+    <geom pos="4.15 0 0.04" type="box" size="0.15 2 0.04"/>
 
     <!-- rugged height-field patch -->
     <geom type="hfield" hfield="rugged" pos="8.0 0 0" material="rough"/>
