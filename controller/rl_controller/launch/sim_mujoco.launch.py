@@ -19,7 +19,7 @@ def launch_setup(context, *args, **kwargs):
     robot_xacro_path = os.path.join(
         get_package_share_directory(robot_name + "_description"),
         "xacro",
-        "robot.xacro",
+        "robot_cargo_out.xacro",
     )
     robot_description = xacro.process_file(
         robot_xacro_path, mappings={"hw_env": "webots"}
