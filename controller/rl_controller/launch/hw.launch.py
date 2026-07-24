@@ -8,16 +8,25 @@ import xacro
 import sys
 
 
+# Default xacro per robot; robots not listed fall back to robot.xacro
+DEFAULT_MODEL = {"d1": "robot_cargo_out.xacro"}
+
+
 def launch_setup(context, *args, **kwargs):
     robot_name = LaunchConfiguration("robot").perform(context)
     # nn = LaunchConfiguration("namespace").perform(context)
     nn = ""
 
+    model_file = LaunchConfiguration("model").perform(context) or DEFAULT_MODEL.get(
+        robot_name, "robot.xacro"
+    )
     robot_xacro_path = os.path.join(
         get_package_share_directory(robot_name + "_description"),
         "xacro",
-        "robot.xacro",
+        model_file,
     )
+    if not os.path.isfile(robot_xacro_path):
+        raise RuntimeError("xacro not found: " + robot_xacro_path)
 
     robot_description = xacro.process_file(
         robot_xacro_path, mappings={"hw_env": "hw"}
@@ -44,7 +53,7 @@ def launch_setup(context, *args, **kwargs):
         executable="robot_state_publisher",
         parameters=[
             {"robot_description": robot_description},
-            {"frame_prefix": nn + "/"},
+            {"frame_prefix": nn + "/" if nn else ""},
         ],
         namespace=nn,
     )
@@ -96,6 +105,14 @@ def generate_launch_description():
             "robot",
             default_value="tita",
             description="Path to the robot description file",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "model",
+            default_value="",
+            description="xacro file name under <robot>_description/xacro; "
+            "empty selects the per-robot default",
         )
     )
     # declared_arguments.append(
