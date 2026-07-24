@@ -36,7 +36,7 @@
 #define MAX_VEL_W 10.0
 #define MAX_ORIENTATION 0.6
 #define MAX_POSITION 0.1
-#define MIN_HEIGHT 0.19
+#define MIN_HEIGHT 0.15
 #define MAX_HEIGHT 0.5
 #define DEFAULT_HEIGHT 0.4
 
